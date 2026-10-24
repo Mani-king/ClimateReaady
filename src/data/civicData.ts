@@ -1,0 +1,918 @@
+import { LocationScenario, ChecklistItem } from '../types';
+
+export const CIVIC_LOCATIONS: LocationScenario[] = [
+  {
+    id: 'tirupati-ap',
+    name: 'Tirupati Municipal Corporation',
+    district: 'Tirupati District (Rayalaseema)',
+    state: 'Andhra Pradesh',
+    country: 'India',
+    latitude: 13.6288,
+    longitude: 79.4192,
+    lastSimulatedSync: 'Simulated Model Sync: 10:45 IST',
+    authoritativeSources: [
+      'IMD Cyclone & Heat Warning Centre (Amaravati)',
+      'Andhra Pradesh State Disaster Management Authority (APSDMA)',
+      'NDMA SACHET Early Warning Portal',
+      'Central Water Commission (CWC - Pennar & Cauvery Basin)',
+    ],
+    scenarioType: 'Compound Hazard Drill',
+
+    heatwave: {
+      statusLevel: 'Orange Heat Wave',
+      peakTempCelsius: 42.6,
+      nighttimeMinCelsius: 29.8,
+      heatIndexCelsius: 46.2,
+      thresholdExceeded: true,
+      localContext: {
+        en: 'APSDMA Orange Heatwave Alert. Extreme thermal load across densely populated pilgrim transit corridors, Bhavani Nagar, and old town stone-masonry settlements. Nighttime minimum of ~30°C prevents natural biological recuperation.',
+        te: 'APSDMA ఆరెంజ్ అలర్ట్. యాత్రికుల రద్దీ గల ప్రాంతాలు, భవాని నగర్ మరియు రాతి కట్టడాల నివాసాలలో తీవ్ర ఉష్ణోగ్రతలు. రాత్రి 30°C ల కనిష్ట ఉష్ణోగ్రత వల్ల శరీరానికి వేడి నుండి ఉపశమనం లభించదు.',
+        hi: 'APSDMA ऑरेंज अलर्ट। तीर्थयात्री ट्रांजिट गलियारों, भवानी नगर और घनी आबादी वाले पुराने शहर में अत्यधिक ताप तनाव। रात का 30°C न्यूनतम तापमान शरीर को स्वाभाविक रूप से ठंडा होने से रोकता है।',
+      },
+      primaryDirectives: {
+        en: [
+          'Halt all non-essential outdoor manual labor and open-air queue lines between 11:30 AM and 04:00 PM.',
+          'Consume traditional oral rehydration (ORS), tender coconut water, or salted buttermilk (Majjiga) every 60 minutes.',
+          'Keep roof surfaces covered with reflective lime wash (chuna) or wet gunny sacks to counter roof ceiling radiation.',
+          'Check on senior citizens (65+) and infants twice daily; watch for cessation of sweating or confusion (heatstroke symptoms).',
+        ],
+        te: [
+          'ఉదయం 11:30 నుండి సాయంత్రం 4:00 గంటల వరకు ఎండలో తిరగడం మరియు శారీరక శ్రమను పూర్తిగా నివారించండి.',
+          'ప్రతి గంటకూ ఓఆర్ఎస్ (ORS), కొబ్బరి నీళ్ళు లేదా ఉప్పు కలిపిన మజ్జిగ పుష్కలంగా తాగండి.',
+          'ఇంటి డాబాలపై సున్నం పూత వేయడం లేదా తడి గోనె సంచులను పరచడం ద్వారా గదుల వేడిని తగ్గించండి.',
+          'వృద్ధులు (65+) మరియు చిన్న పిల్లల ఆరోగ్యాన్ని రోజుకు రెండుసార్లు గమనించండి; చెమట పట్టకపోవడం లేదా నీరసం వడదెబ్బ లక్షణాలు.',
+        ],
+        hi: [
+          'सुबह 11:30 से शाम 4:00 बजे के बीच अनावश्यक रूप से धूप में निकलने और खुले में शारीरिक श्रम से बचें।',
+          'प्रत्येक घंटे में ओआरएस (ORS), नारियल पानी या छाछ का सेवन अवश्य करें।',
+          'छतों पर चूने की पुताई करें या गीली बोरियां रखें ताकि कमरों के अंदर तापमान कम रहे।',
+          'वरिष्ठ नागरिकों और बच्चों की दिन में दो बार जांच करें; पसीना बंद होना लू (हीटस्ट्रोक) का गंभीर संकेत है।',
+        ],
+      },
+      coolingHubs: [
+        {
+          name: 'Alipiri Pilgrim Cool Transit Haven',
+          address: 'Alipiri Footpath Entry Plaza, Ward 4',
+          distance: '1.2 km',
+          hours: '08:00 – 21:00 IST',
+          airConditioned: true,
+          waterRefill: true,
+          accessible: true,
+          phone: '0877-2236007',
+          mandalWard: 'Tirupati Urban — Ward 4',
+        },
+        {
+          name: 'SVIMS Hospital Civic Cooling Lounge',
+          address: 'SVIMS Campus, Alipiri Road',
+          distance: '1.9 km',
+          hours: '24 Hours Emergency Support',
+          airConditioned: true,
+          waterRefill: true,
+          accessible: true,
+          phone: '0877-2877777',
+          mandalWard: 'Medical Enclave — Ward 11',
+        },
+        {
+          name: 'MCT Central Bus Stand Chalivendra & Hub',
+          address: 'RTC Central Bus Terminal, Korlagunta',
+          distance: '0.8 km',
+          hours: '07:30 – 20:30 IST',
+          airConditioned: false,
+          waterRefill: true,
+          accessible: true,
+          phone: '0877-2256766',
+          mandalWard: 'Ward 22 — Korlagunta',
+        },
+      ],
+      historicalComparison: {
+        year: 2024,
+        event: 'Rayalaseema Heatwave Record (44.8°C at Tirupati Airport / Renigunta)',
+        difference: '-2.2°C relative to historical maximum; +3.8°C above IMD 1981–2010 normal.',
+      },
+    },
+
+    flood: {
+      statusLevel: 'Inundation Watch',
+      riverCatchment: 'Swarnamukhi River Basin & Tirumala Hill Runoff',
+      riskSummary: {
+        en: 'Inundation watch issued for low-lying reaches of Swarnamukhi River basin and Karakambadi road underpasses following localized 85mm convective rainfall over Seshachalam hills.',
+        te: 'శేషాచలం కొండల్లో కురిసిన 85 మి.మీ భారీ వర్షాల కారణంగా స్వర్ణముఖి నదీ పరీవాహక ప్రాంతం మరియు కరకంబాడి రోడ్డు లోతట్టు ప్రాంతాలకు ముంపు హెచ్చరిక జారీ చేయబడింది.',
+        hi: 'शेषाचलम की पहाड़ियों पर 85 मिमी भारी बारिश के कारण स्वर्णमुखी नदी बेसिन और करकंबाडी रोड के निचले इलाकों के लिए जलभराव की चेतावनी जारी।',
+      },
+      riverStations: [
+        {
+          stationName: 'Swarnamukhi at Gajulamandyam Bridge',
+          watercourse: 'Swarnamukhi River',
+          currentLevelMeters: 4.82,
+          warningLevelMeters: 5.50,
+          dangerLevelMeters: 6.80,
+          status: 'Alert Level',
+          trend: 'Rising slowly',
+        },
+        {
+          stationName: 'Alipiri Storm Drain Chokepoint (Vanka)',
+          watercourse: 'Kapila Theertham Drainage Vanka',
+          currentLevelMeters: 2.15,
+          warningLevelMeters: 2.40,
+          dangerLevelMeters: 3.10,
+          status: 'Warning Level',
+          trend: 'Peaked',
+        },
+        {
+          stationName: 'Renigunta Low-Level Causeway',
+          watercourse: 'Kalyani Dam Spillway Runoff',
+          currentLevelMeters: 3.40,
+          warningLevelMeters: 4.20,
+          dangerLevelMeters: 5.00,
+          status: 'Normal',
+          trend: 'Steady',
+        },
+      ],
+      reliefDepots: [
+        {
+          name: 'MCT Central Engineering Store',
+          location: 'Tilak Road Municipal Yard, Korlagunta',
+          status: 'Operational 24/7',
+          collectionType: 'Pre-filled sandbags (max 10 per household with Aadhaar/Property ID)',
+          contact: '0877-2256766',
+          mandalWard: 'Ward 18',
+        },
+        {
+          name: 'Renigunta Disaster Logistics Cache',
+          location: 'Near Old Railway Station, Renigunta',
+          status: 'Emergency Stocking',
+          collectionType: 'Movable sheet barriers, sandbags, and chlorine tablets',
+          contact: '0877-2275240',
+          mandalWard: 'Renigunta Mandal',
+        },
+      ],
+      urbanDrainageNotice: {
+        en: 'High silt accumulation reported in Kapilatheertham feeder channel. Low-lying areas in MR Palli and Autonagar subject to surface water ponding up to 40 cm.',
+        te: 'కపిలతీర్థం ప్రధాన కాలువలో పూడిక కారణంగా ఎం.ఆర్. పల్లి మరియు ఆటోనగర్ లోతట్టు ప్రాంతాల్లో 40 సెం.మీ వరకు వర్షపు నీరు నిలిచే అవకాశం ఉంది.',
+        hi: 'कपिलतीर्थम ड्रेनेज चैनल में गाद जमा होने से एमआर पल्ली और ऑटो नगर के निचले क्षेत्रों में 40 सेमी तक जलभराव की संभावना है।',
+      },
+      historicalComparison: {
+        year: 2021,
+        event: 'Cyclone Nivar Swarnamukhi Inundation (Flash surge 7.15m)',
+        peakMeters: 7.15,
+      },
+    },
+
+    mapZones: [
+      {
+        id: 'tz-1',
+        name: 'Alipiri & Kapilatheertham Foot Zone',
+        type: 'Critical Drainage Chokepoint',
+        hazard: 'flood',
+        riskLevel: 'High',
+        description: {
+          en: 'High-velocity storm runoff descending from Seshachalam ridge into urban culverts. Risk of road overflow near Kapila Theertham.',
+          te: 'శేషాచలం కొండల నుండి వేగంగా వచ్చే వరద నీరు రోడ్లను ముంచెత్తే అవకాశం ఉన్న ప్రాంతం.',
+          hi: 'शेषाचलम पहाड़ियों से तेजी से उतरने वाला वर्षा जल। कपिला तीर्थम के पास जलभराव का जोखिम।',
+        },
+        coordinates: { x: 34, y: 28, r: 18 },
+        primaryMitigation: {
+          en: 'Deployment of high-capacity dewatering pumps and clearance of trash screens.',
+          te: 'భారీ మోటార్ల ద్వారా నీటిని తోడివేయడం మరియు పూడికతీత పనులు.',
+          hi: 'उच्च क्षमता वाले पंपों की तैनाती और नालों की सफाई।',
+        },
+      },
+      {
+        id: 'tz-2',
+        name: 'Bhavani Nagar & Old Temple Core',
+        type: 'Heat Island Risk',
+        hazard: 'heatwave',
+        riskLevel: 'Severe',
+        description: {
+          en: 'High density masonry and concrete rooftop concentration. Low tree canopy density elevates surface temperatures by +4.5°C.',
+          te: 'ఎక్కువ కాంక్రీట్ భవనాలు, చెట్ల కొరత కారణంగా ఉష్ణోగ్రత 4.5°C ఎక్కువగా ఉండే అత్యధిక వేడి జోన్.',
+          hi: 'कंक्रीट और पक्के मकानों का सघन क्षेत्र। हरियाली की कमी से तापमान 4.5°C अधिक रहता है।',
+        },
+        coordinates: { x: 52, y: 46, r: 22 },
+        primaryMitigation: {
+          en: 'Installation of green shade nets, municipal water misting, and free buttermilk stalls.',
+          te: 'పచ్చటి షేడ్ నెట్లు ఏర్పాటు చేయడం మరియు చలివేంద్రాల ద్వారా మజ్జిగ పంపిణీ.',
+          hi: 'ग्रीन शेड नेट लगाना और नगरपालिका द्वारा छाछ-जल वितरण।',
+        },
+      },
+      {
+        id: 'tz-3',
+        name: 'Korlagunta & Swarnamukhi Fringe',
+        type: 'Flood Surcharge Zone',
+        hazard: 'flood',
+        riskLevel: 'High',
+        description: {
+          en: 'Low-elevation flood plain bordering the river. Vulnerable to backflow during upstream cresting.',
+          te: 'స్వర్ణముఖి నదీ పరీవాహక లోతట్టు ప్రాంతం; నది ఉధృతి పెరిగినప్పుడు నీరు వెనక్కి తన్నే ప్రమాదం.',
+          hi: 'नदी किनारे का निचला इलाका; नदी का जलस्तर बढ़ने पर बैकवाटर भरने का खतरा।',
+        },
+        coordinates: { x: 68, y: 64, r: 24 },
+        primaryMitigation: {
+          en: 'Pre-positioning of 2,000 sandbags and alert activation for ground-floor households.',
+          te: '2,000 ఇసుక బస్తాలను సిద్ధం చేయడం మరియు లోతట్టు ప్రజలను అప్రమత్తం చేయడం.',
+          hi: '2,000 रेत की बोरियां तैयार रखना और भूतल के निवासियों को सतर्क करना।',
+        },
+      },
+      {
+        id: 'tz-4',
+        name: 'SV University Campus & Stadium',
+        type: 'Safe Evacuation Haven',
+        hazard: 'safe',
+        riskLevel: 'Safe Haven',
+        description: {
+          en: 'High elevation natural ridge with institutional halls, backup generators, and medical supply caches.',
+          te: 'ఎత్తైన ప్రాంతం, బ్యాకప్ విద్యుత్ మరియు వైద్య సదుపాయాలు కలిగిన అధికారిక సురక్షిత పునరావాస కేంద్రం.',
+          hi: 'ऊंचाई पर स्थित सुरक्षित परिसर, बैकअप जनरेटर और चिकित्सा सुविधा से लैस राहत केंद्र।',
+        },
+        coordinates: { x: 26, y: 68, r: 20 },
+        shelterCapacity: 2500,
+        primaryMitigation: {
+          en: 'Primary designated municipal assembly point for evacuated residents.',
+          te: 'మున్సిపల్ ప్రధాన సహాయ మరియు పునరావాస సేవా కేంద్రం.',
+          hi: 'विस्थापित नागरिकों के लिए प्राथमिक नगरपालिका आश्रय स्थल।',
+        },
+      },
+    ],
+
+    communityGaps: [
+      {
+        category: 'Potable Drinking Water Reserves (72h)',
+        targetPercent: 85,
+        syntheticPreparednessPercent: 48,
+        criticalGapDescription: {
+          en: 'Only 48% of simulated households maintain verified 72-hour food-grade water containers.',
+          te: 'కేవలం 48% ఇళ్లలో మాత్రమే 72 గంటలకు సరిపడా స్వచ్ఛమైన తాగునీటి నిల్వలు ఉన్నాయి.',
+          hi: 'केवल 48% घरों में 72 घंटे के लिए सुरक्षित पेयजल का भंडारण उपलब्ध है।',
+        },
+        suggestedCivicIntervention: {
+          en: 'Ward Secretariat (Sachivalayam) distribution of 20-litre food-grade storage cans before monsoon onset.',
+          te: 'సచివాలయాల ద్వారా 20 లీటర్ల తాగునీటి క్యాన్ల పంపిణీ చేపట్టడం.',
+          hi: 'वार्ड सचिवालय द्वारा 20 लीटर के सुरक्षित जल भंडारण ड्रम उपलब्ध कराना।',
+        },
+      },
+      {
+        category: 'Vulnerable Elder Heat Outreach (Buddy System)',
+        targetPercent: 90,
+        syntheticPreparednessPercent: 36,
+        criticalGapDescription: {
+          en: 'Severe gap in bilateral buddy checks for seniors living in asbestos/tin-roof structures during 42°C+ peak days.',
+          te: 'రేకుల ఇళ్లలో నివసించే ఒంటరి వృద్ధుల పట్ల రోజువారీ సంరక్షణ తనిఖీలలో 36% మాత్రమే కవరేజ్ ఉంది.',
+          hi: 'टीन या एस्बेस्टस की छत वाले घरों में अकेले रहने वाले बुजुर्गों की देखभाल में भारी कमी।',
+        },
+        suggestedCivicIntervention: {
+          en: 'Mobilize ANMs and Ward Volunteers for twice-daily biometric welfare calls.',
+          te: 'ఏఎన్ఎంలు (ANM) మరియు వార్డు వాలంటీర్ల ద్వారా రోజుకు రెండుసార్లు సంరక్షణ పరిశీలన.',
+          hi: 'एएनएम और वार्ड स्वयंसेवकों द्वारा दिन में दो बार संपर्क सुनिश्चित करना।',
+        },
+      },
+      {
+        category: 'Non-Return Sewer Backflow Valves',
+        targetPercent: 75,
+        syntheticPreparednessPercent: 28,
+        criticalGapDescription: {
+          en: 'Ground-floor plumbing in low-lying wards lacks backflow check valves, risking blackwater contamination.',
+          te: 'లోతట్టు వార్డులలో మురుగునీరు ఇళ్లలోకి రాకుండా వాల్వ్‌లు లేకపోవడం వల్ల వ్యాధుల ప్రబలే ప్రమాదం.',
+          hi: 'निचले वार्डों में सीवर बैकफ्लो वाल्व न होने से गंदे पानी के घरों में घुसने का जोखिम।',
+        },
+        suggestedCivicIntervention: {
+          en: 'Subsidized non-return valve installation drive by Tirupati Municipal Engineering wing.',
+          te: 'మున్సిపల్ ఇంజనీరింగ్ విభాగం ద్వారా రాయితీపై బ్యాక్‌ఫ్లో వాల్వ్‌ల అమరిక.',
+          hi: 'नगरपालिका द्वारा सब्सिडी पर नॉन-रिटर्न वाल्व लगाने का अभियान चलाना।',
+        },
+      },
+    ],
+
+    contacts: [
+      {
+        title: {
+          en: 'APSDMA State Disaster Control Room',
+          te: 'APSDMA రాష్ట్ర విపత్తు నియంత్రణ కేంద్రం',
+          hi: 'APSDMA राज्य आपदा नियंत्रण कक्ष',
+        },
+        agency: 'Govt of Andhra Pradesh',
+        phone: '1070',
+        hours: '24/7 Toll-free Pan-AP',
+      },
+      {
+        title: {
+          en: 'Tirupati District Emergency Operations Centre',
+          te: 'తిరుపతి జిల్లా విపత్తు అత్యవసర కేంద్రం',
+          hi: 'तिरुपति जिला आपातकालीन नियंत्रण केंद्र',
+        },
+        agency: 'District Collectorate, Tirupati',
+        phone: '1077',
+        hours: '24/7 District Desk / 0877-2236007',
+      },
+      {
+        title: {
+          en: 'National Emergency Response System (ERSS)',
+          te: 'జాతీయ అత్యవసర ప్రతిస్పందన సేవలు',
+          hi: 'राष्ट्रीय आपातकालीन सेवा (पुलिस/अग्निशमन/राहत)',
+        },
+        agency: 'Unified Police, Fire & Disaster Dispatch',
+        phone: '112',
+        hours: '24 Hours Instant Dispatch',
+      },
+      {
+        title: {
+          en: 'Tirupati Municipal Corporation (MCT) Helpline',
+          te: 'తిరుపతి మున్సిపల్ కార్పొరేషన్ హెల్ప్‌లైన్',
+          hi: 'तिरुपति नगर निगम हेल्पलाइन',
+        },
+        agency: 'MCT Engineering & Health Wing',
+        phone: '0877-2256766',
+        hours: '06:00 – 22:00 IST',
+      },
+    ],
+  },
+
+  {
+    id: 'anantapur-ap',
+    name: 'Anantapur Municipal Corporation',
+    district: 'Anantapur District (Rayalaseema)',
+    state: 'Andhra Pradesh',
+    country: 'India',
+    latitude: 14.6819,
+    longitude: 77.6006,
+    lastSimulatedSync: 'Simulated Model Sync: 10:30 IST',
+    authoritativeSources: [
+      'IMD Meteorological Centre (Amaravati / Hyderabad)',
+      'Andhra Pradesh State Disaster Management Authority (APSDMA)',
+      'NDMA SACHET Early Warning Network',
+      'Central Water Commission (Penna Basin Division)',
+    ],
+    scenarioType: 'Seasonal Demonstration',
+
+    heatwave: {
+      statusLevel: 'Red Severe Heat Wave',
+      peakTempCelsius: 44.4,
+      nighttimeMinCelsius: 31.2,
+      heatIndexCelsius: 47.8,
+      thresholdExceeded: true,
+      localContext: {
+        en: 'APSDMA Red Warning. Severe heatwave conditions compounded by dry continental westerly winds and extreme ground insolation across Anantapur plateau. Water scarcity exacerbates thermal distress.',
+        te: 'APSDMA రెడ్ అలర్ట్. అనంతపురం పీఠభూమిపై పొడి పడమటి గాలులు మరియు తీవ్ర ఎండల వల్ల అతి తీవ్రమైన వడగాల్పులు. నీటి కొరత వల్ల ప్రజల ఇబ్బందులు మరింత తీవ్రం.',
+        hi: 'APSDMA रेड अलर्ट। शुष्क पश्चिमी हवाओं और अत्यधिक धूप के कारण गंभीर लू की स्थिति। पानी की कमी से गर्मी का प्रभाव और अधिक गंभीर हो जाता है।',
+      },
+      primaryDirectives: {
+        en: [
+          'Absolute curfew on outdoor exertion between 11:00 AM and 04:30 PM. High risk of heat hyperpyrexia.',
+          'Consume 4 to 5 litres of fluids daily including ragi ambali, lemon water, and ORS solution.',
+          'Dampen indoor cotton drapes to promote evaporative cooling in dry conditions.',
+          'Ensure livestock and domestic pets are kept in well-thatched shaded sheds with constant water trough access.',
+        ],
+        te: [
+          'ఉదయం 11:00 నుండి సాయంత్రం 4:30 వరకు బయట తిరగడాన్ని పూర్తిగా నిలిపివేయండి. వడదెబ్బ ప్రాణాంతకం కావచ్చు.',
+          'రాగి అంబలి, నిమ్మకాయ నీరు మరియు ఓఆర్ఎస్ ద్రావణాన్ని రోజుకు 4 నుండి 5 లీటర్లు సేవించండి.',
+          'గదులలో కిటికీలకు తడి కాటన్ పరదాలను వేయడం ద్వారా సహజ శీతలీకరణను పొందండి.',
+          'పశువులు మరియు మూగజీవాలను తగినంత నీడ గల షెడ్లలో ఉంచి తాగునీటి తొట్టెలను నిరంతరం నింపండి.',
+        ],
+        hi: [
+          'सुबह 11:00 से शाम 4:30 बजे तक धूप में शारीरिक परिश्रम पूरी तरह बंद रखें। हीटस्ट्रोक का गंभीर जोखिम।',
+          'प्रतिदिन 4 से 5 लीटर तरल पदार्थ पिएं, जिसमें रागी अम्बाली, नींबू पानी और ओआरएस शामिल हों।',
+          'कमरे की खिड़कियों पर गीले सूती पर्दे लगाएं ताकि वाष्पीकरण से ठंडक मिल सके।',
+          'पशुओं को छायादार स्थानों पर रखें और उनके लिए पानी की निरंतर व्यवस्था रखें।',
+        ],
+      },
+      coolingHubs: [
+        {
+          name: 'Anantapur Municipal Town Hall Cool Shelter',
+          address: 'Subhash Road, Near Clock Tower',
+          distance: '0.5 km',
+          hours: '08:00 – 20:00 IST',
+          airConditioned: true,
+          waterRefill: true,
+          accessible: true,
+          phone: '08554-220003',
+          mandalWard: 'Clock Tower Ward 7',
+        },
+        {
+          name: 'Government General Hospital (GGH) Heat Ward',
+          address: 'Court Road, Anantapur Urban',
+          distance: '1.4 km',
+          hours: '24/7 Dedicated Heat ICU',
+          airConditioned: true,
+          waterRefill: true,
+          accessible: true,
+          phone: '08554-274222',
+          mandalWard: 'Ward 15 — Medical Zone',
+        },
+        {
+          name: 'Rudrampeta Sachivalayam Community Chalivendra',
+          address: 'Rudrampeta Main Road',
+          distance: '2.1 km',
+          hours: '07:00 – 19:00 IST',
+          airConditioned: false,
+          waterRefill: true,
+          accessible: true,
+          phone: '08554-245100',
+          mandalWard: 'Rudrampeta Ward',
+        },
+      ],
+      historicalComparison: {
+        year: 2022,
+        event: 'Severe Summer Heatwave (44.9°C at Anantapur City)',
+        difference: '-0.5°C from record peak; matches severe IMD warning criteria.',
+      },
+    },
+
+    flood: {
+      statusLevel: 'No Active Warnings',
+      riverCatchment: 'Penna Basin & Pandameru Vanka Drainage',
+      riskSummary: {
+        en: 'Penna River and Pandameru Vanka streams remain at nominal baseflow. Penna barrage sluices operating in regular irrigation regulation mode.',
+        te: 'పెన్నా నది మరియు పండమేరు వంకలలో నీటి ప్రవాహం సాధారణ స్థితిలోనే ఉంది. ఎటువంటి వరద హెచ్చరికలు లేవు.',
+        hi: 'पेन्ना नदी और पांडामेरु वांका में जलप्रवाह सामान्य स्तर पर है। वर्तमान में कोई बाढ़ की चेतावनी नहीं है।',
+      },
+      riverStations: [
+        {
+          stationName: 'Penna at Tadipatri Gauge',
+          watercourse: 'Penna River',
+          currentLevelMeters: 2.10,
+          warningLevelMeters: 4.80,
+          dangerLevelMeters: 6.20,
+          status: 'Normal',
+          trend: 'Steady',
+        },
+        {
+          stationName: 'Pandameru Vanka at Bukkarayasamudram',
+          watercourse: 'Pandameru Stream',
+          currentLevelMeters: 1.05,
+          warningLevelMeters: 2.80,
+          dangerLevelMeters: 3.90,
+          status: 'Normal',
+          trend: 'Steady',
+        },
+      ],
+      reliefDepots: [
+        {
+          name: 'Anantapur R&B Disaster Depot',
+          location: 'R&B Complex, Subhash Road',
+          status: 'On Alert',
+          collectionType: 'Pre-stacked sandbags and plastic sheeting for seasonal readiness',
+          contact: '08554-220003',
+          mandalWard: 'Ward 12',
+        },
+      ],
+      urbanDrainageNotice: {
+        en: 'During sudden monsoon cloudbursts, Nadimi Vanka stormwater canal is susceptible to localized choke points near Old Town bridges.',
+        te: 'వర్షాకాలంలో అకస్మాత్తుగా కురిసే వర్షాలకు నడిమి వంక పాత పట్టణ వంతెనల వద్ద నీరు నిలిచే అవకాశం ఉంది.',
+        hi: 'अचानक मूसलाधार बारिश होने पर नदिमी वांका नाला पुराने शहर के पुलों के पास जाम होने की आशंका रहती है।',
+      },
+      historicalComparison: {
+        year: 2022,
+        event: 'Pandameru Flash Flood Inundation (Record 4.2m Crest)',
+        peakMeters: 4.20,
+      },
+    },
+
+    mapZones: [
+      {
+        id: 'az-1',
+        name: 'Clock Tower & Market Core',
+        type: 'Heat Island Risk',
+        hazard: 'heatwave',
+        riskLevel: 'Severe',
+        description: {
+          en: 'Dense commercial market corridor with tin sheds and high asphalt thermal absorption. Peak midday ambient exceeds 45°C.',
+          te: 'రద్దీగా ఉండే వాణిజ్య ప్రాంతం; రేకుల షెడ్లు మరియు తారు రోడ్ల వల్ల వేడి తీవ్రత 45°C దాటే ప్రాంతం.',
+          hi: 'सघन व्यावसायिक बाजार क्षेत्र; टीन शेड और डामर की सड़कों के कारण दोपहर में तापमान 45°C पार कर जाता है।',
+        },
+        coordinates: { x: 45, y: 38, r: 24 },
+        primaryMitigation: {
+          en: 'Erection of temporary shade canopies and 24/7 cold water dispensing units.',
+          te: 'తాత్కాలిక షేడ్ నెట్ల నిర్మాణం మరియు నిరంతర చల్లటి తాగునీటి సరఫరా.',
+          hi: 'अस्थायी छायादार शेड और निरंतर ठंडे पेयजल की व्यवस्था।',
+        },
+      },
+      {
+        id: 'az-2',
+        name: 'Nadimi Vanka Urban Sluice',
+        type: 'Critical Drainage Chokepoint',
+        hazard: 'flood',
+        riskLevel: 'Moderate',
+        description: {
+          en: 'Urban natural storm canal flowing through residential colonies. Vulnerable to plastic waste choking during sudden downpours.',
+          te: 'కాలనీల గుండా ప్రవహించే వర్షపు నీటి కాలువ; ప్లాస్టిక్ వ్యర్థాల వల్ల నీరు నిలిచే ప్రమాదం.',
+          hi: 'रिहायशी कॉलोनियों से गुजरने वाला बरसाती नाला; कचरा जमा होने से जलभराव का जोखिम।',
+        },
+        coordinates: { x: 62, y: 55, r: 18 },
+        primaryMitigation: {
+          en: 'Pre-monsoon de-silting and automated mechanical trash rakes.',
+          te: 'వర్షాకాలానికి ముందే పూడికతీత మరియు చెత్త తొలగింపు చర్యలు.',
+          hi: 'मानसून पूर्व गाद निकालने और कचरा हटाने का अभियान।',
+        },
+      },
+      {
+        id: 'az-3',
+        name: 'Arts College Grounds & Gymnasium',
+        type: 'Safe Evacuation Haven',
+        hazard: 'safe',
+        riskLevel: 'Safe Haven',
+        description: {
+          en: 'Open expanse with high tree canopy cover, wide access roads, and multiple indoor auditoriums.',
+          te: 'ఎక్కువ చెట్లు, విశాలమైన రోడ్లు మరియు ఆడిటోరియంలు గల అధికారిక సురక్షిత ప్రాంతం.',
+          hi: 'पर्याप्त हरियाली और बड़े हॉल वाला सुरक्षित राहत एवं निकासी केंद्र।',
+        },
+        coordinates: { x: 30, y: 65, r: 20 },
+        shelterCapacity: 3000,
+        primaryMitigation: {
+          en: 'Designated multi-hazard emergency shelter and mobile medical triage post.',
+          te: 'అత్యవసర పునరావాసం మరియు మొబైల్ మెడికల్ క్యాంప్ నిర్వహణ.',
+          hi: 'बहु-आपदा आपातकालीन आश्रय और मोबाइल मेडिकल यूनिट।',
+        },
+      },
+    ],
+
+    communityGaps: [
+      {
+        category: 'Cool Roof / Lime-Wash Adoption',
+        targetPercent: 80,
+        syntheticPreparednessPercent: 32,
+        criticalGapDescription: {
+          en: 'Only 32% of concrete and tin-roof residential dwellings have solar-reflective lime wash applied.',
+          te: 'కేవలం 32% ఇళ్ల పైకప్పులపై మాత్రమే వేడిని తగ్గించే సున్నం పూత పూయబడింది.',
+          hi: 'केवल 32% मकानों की छतों पर धूप रोकने वाला चूना या कूल रूफ कोटिंग लगी है।',
+        },
+        suggestedCivicIntervention: {
+          en: 'Municipal Cool Roof mission providing free lime-wash packets via Ward Sachivalayams.',
+          te: 'వార్డు సచివాలయాల ద్వారా ఉచిత సున్నం ప్యాకెట్ల పంపిణీ మరియు ప్రచారం.',
+          hi: 'वार्ड सचिवालयों के माध्यम से निःशुल्क चूना पैकेट वितरण अभियान।',
+        },
+      },
+      {
+        category: 'Oral Rehydration Salts (ORS) Stock in Households',
+        targetPercent: 95,
+        syntheticPreparednessPercent: 54,
+        criticalGapDescription: {
+          en: 'Significant shortfall in immediate household electrolyte reserves for sudden severe heat events.',
+          te: 'హీట్ వేవ్ సమయంలో ఉపయోగపడే ఓఆర్ఎస్ (ORS) నిల్వలు 54% కుటుంబాల వద్ద మాత్రమే ఉన్నాయి.',
+          hi: 'गंभीर लू के दौरान आवश्यक ओआरएस पैकेट 54% परिवारों के पास ही उपलब्ध हैं।',
+        },
+        suggestedCivicIntervention: {
+          en: 'ASHA and ANM workers door-to-door distribution of 5 ORS sachets per household.',
+          te: 'ఆశా కార్యకర్తల ద్వారా ప్రతి ఇంటికీ 5 ఓఆర్ఎస్ ప్యాకెట్ల పంపిణీ.',
+          hi: 'आशा कार्यकर्ताओं द्वारा घर-घर 5 ओआरएस पैकेट का अग्रिम वितरण।',
+        },
+      },
+      {
+        category: 'Rooftop Rainwater Harvesting Desilting',
+        targetPercent: 70,
+        syntheticPreparednessPercent: 41,
+        criticalGapDescription: {
+          en: 'Recharge pits blocked by dust storms, reducing aquifer replenishment and aggravating dry season water deficits.',
+          te: 'దుమ్ము తుఫానుల వల్ల ఇంకుడు గుంతలు పూడిపోయి భూగర్భ జలాల పునరుద్ధరణ మందగించింది.',
+          hi: 'धूल भरी आंधी के कारण वाटर हार्वेस्टिंग गड्ढे अवरुद्ध हैं, जिससे भूजल पुनर्भरण प्रभावित है।',
+        },
+        suggestedCivicIntervention: {
+          en: 'Community pit de-silting drive coordinated under MGNREGS and urban civic bodies.',
+          te: 'ఉపాధి హామీ మరియు మున్సిపాలిటీ సమన్వయంతో ఇంకుడు గుంతల పూడికతీత.',
+          hi: 'सामुदायिक स्तर पर वाटर हार्वेस्टिंग गड्ढों की सफाई का विशेष अभियान।',
+        },
+      },
+    ],
+
+    contacts: [
+      {
+        title: {
+          en: 'APSDMA State Disaster Helpline',
+          te: 'APSDMA రాష్ట్ర హెల్ప్‌లైన్',
+          hi: 'APSDMA राज्य हेल्पलाइन',
+        },
+        agency: 'Govt of Andhra Pradesh',
+        phone: '1070',
+        hours: '24 Hours Toll-free',
+      },
+      {
+        title: {
+          en: 'Anantapur District Disaster Control Room',
+          te: 'అనంతపురం జిల్లా విపత్తు కంట్రోల్ రూమ్',
+          hi: 'अनंतपुर जिला आपदा नियंत्रण कक्ष',
+        },
+        agency: 'District Collectorate, Anantapur',
+        phone: '1077',
+        hours: '24/7 Desk / 08554-220003',
+      },
+      {
+        title: {
+          en: 'Emergency Response Support System',
+          te: 'జాతీయ అత్యవసర కాల్ సెంటర్ (ERSS)',
+          hi: 'राष्ट्रीय आपातकालीन सेवा (ERSS)',
+        },
+        agency: 'Emergency Police, Fire, Ambulance',
+        phone: '112',
+        hours: '24 Hours Instant Dispatch',
+      },
+      {
+        title: {
+          en: 'Arogya Sree & Health Guidance Line',
+          te: 'ఆరోగ్య సలహా హెల్ప్‌లైన్',
+          hi: 'स्वास्थ्य मार्गदर्शन हेल्पलाइन',
+        },
+        agency: 'Department of Health & Family Welfare',
+        phone: '104',
+        hours: '24/7 Medical Advice',
+      },
+    ],
+  },
+];
+
+export const INITIAL_CHECKLIST_ITEMS: ChecklistItem[] = [
+  {
+    id: 'chk-ind-water-storage',
+    category: 'general',
+    urgency: 'immediate',
+    title: {
+      en: 'Store 72-hour clean drinking water in covered food-grade vessels',
+      te: '72 గంటలకు సరిపడా స్వచ్ఛమైన తాగునీటిని మూత ఉన్న పాత్రలలో నిల్వ చేయండి',
+      hi: '72 घंटे के लिए सुरक्षित पेयजल को ढक्कनदार बर्तनों में संग्रहित करें',
+    },
+    description: {
+      en: 'Store at least 4 litres per person daily in earthen pots (Matkas) or food-grade cans. Heatwaves double dehydration rates; inundations contaminate municipal piped supply.',
+      te: 'మట్టి కుండలు లేదా క్యాన్లలో రోజుకు ఒకరికి 4 లీటర్ల చొప్పున నిల్వ చేయండి. వేసవిలో డీహైడ్రేషన్ ప్రమాదం ఎక్కువ, వర్షాల్లో పైపుల నీరు కలుషితం కావచ్చు.',
+      hi: 'मिट्टी के मटकों या सुरक्षित बर्तनों में प्रति व्यक्ति 4 लीटर प्रतिदिन के हिसाब से पानी रखें। गर्मी में निर्जलीकरण और बाढ़ में जल प्रदूषण का खतरा रहता है।',
+    },
+    essentialNotes: {
+      en: 'Add chlorine tablet (Halazone) or boil water if municipal brown-water alert is active.',
+      te: 'మున్సిపల్ సరఫరాలో మట్టి నీరు వస్తే క్లోరిన్ మాత్రలు వాడండి లేదా మరిగించండి.',
+      hi: 'पानी गंदला होने पर उबालकर पिएं या क्लोरीन की गोली का उपयोग करें।',
+    },
+  },
+  {
+    id: 'chk-ind-ors-electrolytes',
+    category: 'heatwave',
+    urgency: 'immediate',
+    title: {
+      en: 'Assemble emergency oral rehydration salts (ORS) & glucose reserve',
+      te: 'అత్యవసర ఓఆర్ఎస్ (ORS) ప్యాకెట్లు మరియు గ్లూకోజ్ నిల్వలను సిద్ధం చేయండి',
+      hi: 'ओआरएस (ORS) के पैकेट और ग्लूकोज की आपातकालीन किट तैयार रखें',
+    },
+    description: {
+      en: 'Keep at least 6 WHO-formula ORS packets or homemade sugar-salt rehydration solution ready. Rayalaseema dry heat saps sodium rapidly even indoors.',
+      te: 'కనీసం 6 ఓఆర్ఎస్ ప్యాకెట్లు సిద్ధంగా ఉంచండి. రాయలసీమ పొడి వేడి వల్ల శరీరంలో లవణాలు వేగంగా తగ్గిపోతాయి.',
+      hi: 'कम से कम 6 ओआरएस पैकेट तैयार रखें। रायलसीमा की शुष्क गर्मी से शरीर में सोडियम की तेजी से कमी होती है।',
+    },
+    essentialNotes: {
+      en: 'Mix 1 ORS packet in 1 litre clean boiled water; do not add extra sugar.',
+      te: 'ఒక ప్యాకెట్‌ను 1 లీటరు తాగునీటిలో కలపండి; అదనంగా చక్కెర కలపవద్దు.',
+      hi: '1 पैकेट को 1 लीटर साफ पानी में मिलाएं; अतिरिक्त चीनी न डालें।',
+    },
+  },
+  {
+    id: 'chk-ind-docs-elevation',
+    category: 'flood',
+    urgency: 'immediate',
+    title: {
+      en: 'Seal vital documents (Aadhaar, Ration Card, Land Deeds) in waterproof pouches',
+      te: 'ఆధార్, రేషన్ కార్డు, పట్టాదారు పాస్ పుస్తకాలు ప్లాస్టిక్ జిప్ పౌచులలో భద్రపరచండి',
+      hi: 'आधार, राशन कार्ड, जमीन के कागजात वॉटरप्रूफ पाउच में सुरक्षित रखें',
+    },
+    description: {
+      en: 'Place Aadhaar cards, bank passbooks, health cards (Aarogyasri), and property deeds in double zip-lock bags and elevate to the highest cupboard shelf.',
+      te: 'ఆధార్ కార్డులు, బ్యాంకు పాస్ పుస్తకాలు, ఆరోగ్యశ్రీ కార్డులు మరియు ఆస్తి పత్రాలను వాటర్‌ప్రూఫ్ కవర్లలో ఉంచి పై అంతస్తులో భద్రపరచండి.',
+      hi: 'आधार कार्ड, बैंक पासबुक, आयुष्मान/आरोग्यश्री कार्ड और संपत्ति के दस्तावेज जिपलॉक बैग में रखकर अलमारी के ऊपरी रैक पर रखें।',
+    },
+    essentialNotes: {
+      en: 'Keep DigiLocker digital backup accessible on your mobile phone.',
+      te: 'డిజిలాకర్ (DigiLocker) ద్వారా మొబైల్‌లో డిజిటల్ కాపీలను ఉంచుకోండి.',
+      hi: 'डिजीलॉकर में सभी दस्तावेजों की डिजिटल कॉपी सुरक्षित रखें।',
+    },
+  },
+  {
+    id: 'chk-ind-cool-roof',
+    category: 'heatwave',
+    urgency: '24hr',
+    title: {
+      en: 'Apply reflective lime wash or drape wet jute bags on exposed roof slabs',
+      te: 'డాబాపై సున్నం పూత వేయండి లేదా ఎండ తగిలే చోట తడి గోనె సంచులను పరచండి',
+      hi: 'छत पर चूने की पुताई करें या धूप वाले हिस्से पर गीली बोरियां बिछाएं',
+    },
+    description: {
+      en: 'Solar radiation absorbed by concrete ceiling slabs re-radiates downwards into living rooms all night. Lime wash reflects over 70% of radiant solar heat.',
+      te: 'కాంక్రీట్ పైకప్పు పగటిపూట వేడిని పీల్చుకుని రాత్రి వేళ గదులను నిప్పుల కుంపటిలా మారుస్తుంది. సున్నం పూత 70% వేడిని వెనక్కి తిప్పుతుంది.',
+      hi: 'कंक्रीट की छतें दिनभर गर्मी सोखकर रात में कमरे को तपा देती हैं। चूना 70% सौर विकिरण को परावर्तित कर देता है।',
+    },
+    essentialNotes: {
+      en: 'Mix common salt with slaked lime for better adhesion against rain.',
+      te: 'సున్నంలో కొద్దిగా ఉప్పు కలిపితే వర్షానికి సులభంగా కొట్టుకుపోదు.',
+      hi: 'चूने में थोड़ा नमक मिलाने से वह बारिश में जल्दी नहीं छूटता।',
+    },
+  },
+  {
+    id: 'chk-ind-drainage-gullies',
+    category: 'flood',
+    urgency: '24hr',
+    title: {
+      en: 'Inspect household drain traps & clear plastic silt blockages near threshold',
+      te: 'ఇంటి ముందు ఉన్న మురుగు కాలువలు, డ్రైనేజీ పైపుల్లోని ప్లాస్టిక్ వ్యర్థాలను తొలగించండి',
+      hi: 'घर के सामने की नालियों और ड्रेनेज पाइपों से प्लास्टिक व गाद साफ करें',
+    },
+    description: {
+      en: 'Sudden high-intensity cloudbursts overwhelm local roadside nalas. Clear private entrance grates so stormwater does not back up into living rooms.',
+      te: 'అకస్మాత్తుగా కురిసే వర్షపు నీరు రోడ్ల పైనుండి ఇళ్లలోకి రాకుండా ప్రహరీ గోడల వద్ద ఉన్న తూములను శుభ్రం చేయండి.',
+      hi: 'अचानक तेज बारिश होने पर नालियां उफनकर घरों में घुस सकती हैं। घर के सामने की जालियों को साफ रखें।',
+    },
+    essentialNotes: {
+      en: 'Keep wooden boards or sandbags ready at main threshold entryways.',
+      te: 'సింహద్వారం వద్ద వరద నీరు రాకుండా ఇసుక బస్తాలు లేదా చెక్క పలకలను సిద్ధం చేయండి.',
+      hi: 'मुख्य द्वार पर पानी रोकने के लिए रेत की बोरियां या लकड़ी के तख्ते रखें।',
+    },
+  },
+  {
+    id: 'chk-ind-elder-buddy',
+    category: 'heatwave',
+    urgency: 'immediate',
+    title: {
+      en: 'Set up bilateral buddy checks for elderly relatives & pregnant women',
+      te: 'వృద్ధులు, బాలింతలు మరియు గర్భిణీ స్త్రీల ఆరోగ్యాన్ని రోజూ రెండుసార్లు పరీక్షించండి',
+      hi: 'बुजुर्गों, गर्भवती महिलाओं और बच्चों के लिए दैनिक संपर्क व्यवस्था बनाएं',
+    },
+    description: {
+      en: 'Agree with a neighbor or family member on morning (09:00) and evening (17:00) calls. Heat impairs thirst sensation in seniors, leading to silent heat exhaustion.',
+      te: 'పొరుగువారితో ఉదయం 9:00 మరియు సాయంత్రం 5:00 గంటలకు ఫోన్ లేదా ప్రత్యక్ష పర్యవేక్షణ సమయాన్ని నిర్ణయించుకోండి.',
+      hi: 'पड़ोसियों या परिजनों से सुबह 9:00 और शाम 5:00 बजे कॉल करने का समय तय करें। बुजुर्गों में प्यास का अहसास कम हो जाता है।',
+    },
+    essentialNotes: {
+      en: 'Store Ward Sachivalayam ANM volunteer phone number on speed-dial.',
+      te: 'సచివాలయ ఏఎన్ఎం (ANM) వాలంటీర్ నంబరును స్పీడ్ డయల్‌లో ఉంచండి.',
+      hi: 'वार्ड सचिवालय के स्वास्थ्य कार्यकर्ता का नंबर स्पीड-डायल पर रखें।',
+    },
+  },
+  {
+    id: 'chk-ind-power-inverter',
+    category: 'general',
+    urgency: 'seasonal',
+    title: {
+      en: 'Verify inverter battery distilled water & prepare solar/hand-crank lantern',
+      te: 'ఇన్వర్టర్ బ్యాటరీ నీటి మట్టాన్ని తనిఖీ చేయండి మరియు ఎమర్జెన్సీ లైట్లను ఛార్జ్ చేయండి',
+      hi: 'इन्वर्टर बैटरी का पानी जांचें और इमरजेंसी लाइट चार्ज रखें',
+    },
+    description: {
+      en: 'Grid brownouts are frequent during peak heatwave load (AC demand) and storm line collapses. An operational inverter or portable fan saves lives during nocturnal heat.',
+      te: 'వేసవిలో అధిక విద్యుత్ వాడకం మరియు వర్షాల్లో స్తంభాలు పడిపోవడం వల్ల కరెంటు కోతలు సహజం. ఇన్వర్టర్ లేదా ఛార్జింగ్ ఫ్యాన్లను సిద్ధం చేసుకోండి.',
+      hi: 'गर्मियों में ग्रिड पर लोड और आंधी-तूफान में बिजली गुल होना आम है। रात में राहत के लिए इनवर्टर या रिचार्जेबल पंखा तैयार रखें।',
+    },
+    essentialNotes: {
+      en: 'Keep 1 power-bank fully charged exclusively for emergency telephone calls.',
+      te: 'ఒక పవర్ బ్యాంక్‌ను కేవలం అత్యవసర ఫోన్ కాల్స్ కోసం మాత్రమే పూర్తిగా ఛార్జ్ చేసి ఉంచండి.',
+      hi: 'एक पावर बैंक को केवल आपातकालीन कॉल के लिए पूरी तरह चार्ज रखें।',
+    },
+  },
+  {
+    id: 'chk-ind-backflow-valve',
+    category: 'flood',
+    urgency: 'seasonal',
+    title: {
+      en: 'Install non-return flap valves on ground-floor sanitation outlets',
+      te: 'గ్రౌండ్ ఫ్లోర్ బాత్రూమ్ మురుగు పైపులకు నాన్-రిటర్న్ వాల్వ్‌లను అమర్చండి',
+      hi: 'भूतल के शौचालयों और नालियों में नॉन-रिटर्न फ्लैप वाल्व लगाएं',
+    },
+    description: {
+      en: 'In low-lying wards, surcharge in municipal underground storm drains forces sewage back into household ground-floor bathrooms during flash inundations.',
+      te: 'వరదలు వచ్చినప్పుడు నగర మురుగు కాలువలు నిండిపోయి ఇళ్లలోని బాత్రూమ్‌ల ద్వారా మురుగునీరు పైకి తన్నకుండా వాల్వ్స్ కాపాడతాయి.',
+      hi: 'बाढ़ के दौरान नालियों का गंदा पानी शौचालयों के रास्ते घरों के अंदर घुसने से रोकने के लिए यह वाल्व अनिवार्य है।',
+    },
+    essentialNotes: {
+      en: 'Consult a local licensed plumber before the South-West or North-East monsoon begins.',
+      te: 'వర్షాకాలం ప్రారంభానికి ముందే లైసెన్స్ పొందిన ప్లంబర్ ద్వారా తనిఖీ చేయించండి.',
+      hi: 'मानसून शुरू होने से पहले प्लंबर से जांच करवाएं।',
+    },
+  },
+];
+
+export const OFFICIAL_SOURCES = [
+  {
+    name: 'India Meteorological Department (IMD)',
+    jurisdiction: 'Ministry of Earth Sciences, Govt of India',
+    url: 'https://mausam.imd.gov.in',
+    updateFrequency: 'Daily State Forecasts & Heat Wave Bulletins (Amaravati Centre)',
+    description: 'National statutory meteorological agency issuing Color-Coded Heat & Cyclone warnings across Indian districts.',
+  },
+  {
+    name: 'National Disaster Management Authority (NDMA)',
+    jurisdiction: 'National Early Warning Dissemination & SACHET Portal',
+    url: 'https://sachet.ndma.gov.in',
+    updateFrequency: 'Pan-India Geo-targeted Emergency Push Broadcasts',
+    description: 'Apex statutory disaster agency managing National Guidelines for Heat Action Plans and flood hazard mitigation.',
+  },
+  {
+    name: 'Andhra Pradesh State Disaster Management Authority (APSDMA)',
+    jurisdiction: 'Government of Andhra Pradesh (Kunchanapalli, Guntur)',
+    url: 'https://apsdma.ap.gov.in',
+    updateFrequency: 'Real-time Mandal-Level Incident Commands & Relief Logistics',
+    description: 'State statutory authority executing Heat Action Plans, emergency sandbag caches, and district shelter management.',
+  },
+  {
+    name: 'Central Water Commission (CWC - Pennar Basin)',
+    jurisdiction: 'Ministry of Jal Shakti, Government of India',
+    url: 'https://cwc.gov.in',
+    updateFrequency: 'Hydrological River Gauges & Inundation Inflow Bulletins',
+    description: 'Statutory hydrological authority tracking river gauge crest heights and reservoir discharge warnings.',
+  },
+];
+
+export const INITIAL_ALERTS: import('../types').AlertItem[] = [
+  {
+    id: 'alt-imd-heat-orange',
+    category: 'official',
+    hazardType: 'heatwave',
+    severity: 'high',
+    title: {
+      en: 'IMD Amaravati: Orange Heat Wave Advisory Active for Rayalaseema',
+      te: 'భారత వాతావరణ శాఖ (IMD): రాయలసీమకు ఆరెంజ్ హీట్ వేవ్ హెచ్చరిక',
+      hi: 'भारत मौसम विज्ञान विभाग (IMD): रायलसीमा के लिए ऑरेंज हीट वेव एडवाइजरी',
+    },
+    description: {
+      en: 'Severe thermal conditions projected across interior Andhra Pradesh. Maximum temperatures likely to exceed seasonal normal by +4°C to +5°C. Outdoor exposure strongly discouraged between 11:30 AM and 04:00 PM.',
+      te: 'రాయలసీమలోని పలు ప్రాంతాలలో తీవ్ర ఎండలు మరియు ఉక్కపోత. సాధారణ ఉష్ణోగ్రతల కంటే 4 నుండి 5 డిగ్రీలు పెరిగే అవకాశం. ఉదయం 11:30 నుండి సాయంత్రం 4:00 వరకు ఎండలో వెళ్ళవద్దు.',
+      hi: 'आंध्र प्रदेश के आंतरिक क्षेत्रों में अत्यधिक गर्मी और लू। अधिकतम तापमान सामान्य से 4 से 5 डिग्री अधिक रहने की संभावना। 11:30 से 4:00 के बीच धूप से बचें।',
+    },
+    issuedTime: 'Today, 08:30 IST',
+    validPeriod: 'Valid for next 48 hours',
+    source: 'India Meteorological Department (IMD Amaravati)',
+    sourceUrl: 'https://mausam.imd.gov.in',
+    isVerifiedOfficial: true,
+  },
+  {
+    id: 'alt-cwc-flood-watch',
+    category: 'official',
+    hazardType: 'flood',
+    severity: 'moderate',
+    title: {
+      en: 'CWC FloodWatch: Pennar & Swarnamukhi River Basin Inundation Watch',
+      te: 'కేంద్ర జల సంఘం (CWC): పెన్నా & స్వర్ణముఖి పరీవాహక ప్రాంత ముంపు పర్యవేక్షణ',
+      hi: 'केंद्रीय जल आयोग (CWC): पेन्ना और स्वर्णमुखी नदी बेसिन जलस्तर निगरानी',
+    },
+    description: {
+      en: 'Catchment inflow monitored following upper basin thunderstorm rainfall. River levels currently within steady alert bounds, low-lying causeways advised caution.',
+      te: 'ఎగువ ప్రాంతాల్లో కురిసిన భారీ వర్షాల కారణంగా నదీ ప్రవాహాలపై నిఘా. ప్రస్తుతానికి నీటిమట్టం అప్రమత్తతా పరిధిలోనే ఉంది.',
+      hi: 'ऊपरी जलग्रहण क्षेत्रों में बारिश के बाद नदी के जलस्तर पर निरंतर निगरानी। वर्तमान में स्थिति नियंत्रण में है।',
+    },
+    issuedTime: 'Today, 06:15 IST',
+    validPeriod: 'Daily Hydrological Assessment',
+    source: 'Central Water Commission (CWC FloodWatch India)',
+    sourceUrl: 'https://cwc.gov.in',
+    isVerifiedOfficial: true,
+  },
+  {
+    id: 'alt-live-open-meteo-temp',
+    category: 'weather',
+    hazardType: 'heatwave',
+    severity: 'high',
+    title: {
+      en: 'Live Meteorological Alert: Daytime Peak Exceeding Critical Threshold',
+      te: 'ప్రత్యక్ష వాతావరణ హెచ్చరిక: గరిష్ట ఉష్ణోగ్రత ప్రమాదకర స్థాయికి చేరిక',
+      hi: 'लाइव मौसम चेतावनी: तापमान खतरनाक सीमा के करीब',
+    },
+    description: {
+      en: 'Live atmospheric observation from Open-Meteo indicates high solar radiation and low relative humidity (dry continental Loo winds). Heat index exceeds 44°C.',
+      te: 'ఓపెన్-మెటియో ప్రత్యక్ష వాతావరణ పరిశీలన ప్రకారం తీవ్రమైన ఎండ మరియు పొడి గాలులు వీస్తున్నాయి. అనుభూతి ఉష్ణోగ్రత 44°C దాటింది.',
+      hi: 'ओपन-मेटियो लाइव डेटा के अनुसार शुष्क पछुआ हवाओं और तीखी धूप से हीट इंडेक्स 44°C को पार कर रहा है।',
+    },
+    issuedTime: 'Live Weather Observation',
+    validPeriod: 'Updated every forecast cycle',
+    source: 'Open-Meteo High-Resolution Forecast Engine',
+    sourceUrl: 'https://open-meteo.com',
+    isVerifiedOfficial: false,
+  },
+  {
+    id: 'alt-exp-cooling-deficit',
+    category: 'risk_indicator',
+    hazardType: 'heatwave',
+    severity: 'moderate',
+    title: {
+      en: 'Experimental Risk Indicator: Nocturnal Recovery Deficit (>28°C Night Min)',
+      te: 'ప్రయోగాత్మక ప్రమాద సూచిక: రాత్రి వేళ వేడి తగ్గకపోవడం (28°C కంటే ఎక్కువ)',
+      hi: 'प्रायोगिक जोखिम सूचक: रात में ठंडक न होना (न्यूनतम 28°C से अधिक)',
+    },
+    description: {
+      en: 'Calculated physiological stress factor: concrete and masonry residential buildings in dense wards maintain high radiant temperatures through the night, hindering cardiovascular rest.',
+      te: 'కాంక్రీట్ ఇళ్లలో రాత్రి వేళ కూడా గదులు చల్లబడకపోవడం వల్ల శరీరానికి తగినంత విశ్రాంతి దొరకదు. వృద్ధులకు శీతలీకరణ అవసరం.',
+      hi: 'कंक्रीट के मकानों में रात में भी गर्मी बने रहने से हृदय और रक्तचाप पर दबाव बढ़ता है।',
+    },
+    issuedTime: 'Dynamic Model Index',
+    validPeriod: 'Experimental Civic Algorithm',
+    source: 'ClimateReady Experimental Thermal Stress Metric',
+    isVerifiedOfficial: false,
+  },
+  {
+    id: 'alt-prep-water-reserve',
+    category: 'preparedness',
+    hazardType: 'general',
+    severity: 'low',
+    title: {
+      en: 'Preparedness Reminder: 72-Hour Potable Drinking Water & ORS Stock',
+      te: 'సన్నద్ధత జ్ఞాపిక: 72 గంటలకు సరిపడా తాగునీరు మరియు ఓఆర్ఎస్ నిల్వ',
+      hi: 'तत्परता अनुस्मारक: 72 घंटे का पेयजल और ओआरएस स्टॉक',
+    },
+    description: {
+      en: 'Household readiness check: ensure food-grade water containers are covered and kept in shade. Keep emergency medicines and power-bank charged.',
+      te: 'ఇంటి వద్ద సురక్షితమైన తాగునీటి నిల్వలు మరియు ఎమర్జెన్సీ మందులు అందుబాటులో ఉన్నాయో లేదో ధృవీకరించుకోండి.',
+      hi: 'घर पर साफ पीने के पानी का भंडारण और जीवनरक्षक दवाइयां तैयार रखें।',
+    },
+    issuedTime: 'Standing Civic Checklist Protocol',
+    validPeriod: 'Seasonal Contingency',
+    source: 'APSDMA Community Resilience Protocol',
+    isVerifiedOfficial: false,
+  },
+];
